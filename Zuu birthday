@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Zuu 💖</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #ffc0cb, #ffb6c1, #ff69b4); /* PINK background */
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    h1 {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      color: #cc1f5a;
+      font-size: 3em;
+      top: 6%;
+      z-index: 1000;
+      animation: pulseText 2s infinite;
+    }
+
+    @keyframes pulseText {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .message {
+      position: absolute;
+      top: 65%;
+      width: 80%;
+      left: 10%;
+      color: #cc1f5a;
+      font-size: 1.5em;
+      text-align: center;
+      animation: fadeInUp 4s ease-out forwards;
+      opacity: 0;
+      z-index: 1000;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      position: absolute;
+      transform: rotate(-45deg);
+      animation: fall 5s linear infinite;
+      z-index: 1;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(-45deg);
+        opacity: 0;
+      }
+    }
+
+    .pulse {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: red;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: pulseHeart 2s infinite;
+      z-index: 0;
+    }
+
+    .pulse::before, .pulse::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .pulse::before {
+      top: -25px;
+      left: 0;
+    }
+
+    .pulse::after {
+      left: 25px;
+      top: 0;
+    }
+
+    @keyframes pulseHeart {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1) rotate(-45deg);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(-45deg);
+      }
+    }
+
+    .floating-heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #ff99cc;
+      animation: float 8s infinite ease-in-out;
+      transform: rotate(-45deg);
+      z-index: 0;
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: #ff99cc;
+      border-radius: 50%;
+    }
+
+    .floating-heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .floating-heart::after {
+      left: 15px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(-45deg);
+      }
+      50% {
+        transform: translateY(-50px) rotate(-45deg);
+      }
+      100% {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Happy Birthday Zuu! 💕</h1>
+
+  <!-- Romantic Message -->
+  <div class="message">
+    On this beautiful day, the world was blessed with your smile.<br>
+    Every heartbeat of mine whispers your name, Zuu 💗<br>
+    You are my sunshine, my dream, my everything.<br>
+    Happy Birthday, my love. Always yours 💞
+  </div>
+
+  <!-- Center pulsing heart -->
+  <div class="pulse"></div>
+
+  <script>
+    // Falling Hearts
+    for (let i = 0; i < 50; i++) {
+      let heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 5) + 's';
+      document.body.appendChild(heart);
+    }
+
+    // Floating Hearts
+    for (let i = 0; i < 15; i++) {
+      let fheart = document.createElement('div');
+      fheart.className = 'floating-heart';
+      fheart.style.left = Math.random() * 100 + 'vw';
+      fheart.style.top = Math.random() * 100 + 'vh';
+      fheart.style.animationDelay = Math.random() * 4 + 's';
+      document.body.appendChild(fheart);
+    }
+
+    // Music
+    const audio = new Audio("https://cdn.pixabay.com/audio/2022/03/17/audio_f98bf7c3e3.mp3");
+    audio.loop = true;
+    audio.play();
+  </script>
+</body>
+</html>
